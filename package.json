@@ -1,0 +1,11 @@
+{
+  "name": "cahier-liaison-front",
+  "version": "1.0.0",
+  "description": "Front AngularJS de l'application cahier de liaison",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "david-cc",
+  "license": "ISC"
+}
