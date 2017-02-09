@@ -5,20 +5,21 @@
 <table class="table">
   <thead>
     <tr>
-      <th ng-repeat="key in messagesCtrl.messagesKeys">
+      <th ng-repeat="key in listeMessagesCtrl.messagesKeys">
         {{ key }}
       </th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="message in messagesCtrl.messages">
-      <td ng-repeat="key in messagesCtrl.messagesKeys">
+    <tr ng-repeat="message in listeMessagesCtrl.messages">
+      <td ng-repeat="key in listeMessagesCtrl.messagesKeys">
         <span ng-switch="key">
-          <span ng-switch-when="date">{{ message[key] | date:'dd/MM/yyyy' }}</span>
+          <a ng-switch-when="id" href="/#!/detailMessage/{{ message.id }}" title="Cliquer pour voir les détails">{{ message.id }}</a>
+          <span ng-switch-when="date">{{ message[key] | date:'dd/MM/yyyy HH:mm:ss' }}</span>
           <span ng-switch-default>{{ message[key] }}</span>
         </span>
       </td>
     </tr>
-  </tbody>    
+  </tbody>
 </table>
 <a class="btn btn-default" href="#!/accueil">Retour</a>

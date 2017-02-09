@@ -15,11 +15,16 @@ angular.module('app')
     })
     .when('/createMessage', {
       templateUrl: 'views/createMessage.html',
-      controller: 'MessagesCtrl as messagesCtrl'
+      controller: 'CreateMessageCtrl as createMessageCtrl'
     })
     .when('/listeMessages', {
       templateUrl: 'views/listeMessages.html',
-      controller: 'MessagesCtrl as messagesCtrl'
+      controller: 'ListeMessagesCtrl as listeMessagesCtrl'
     })
+    .when('/detailMessage/:id', {
+      templateUrl: 'views/detailMessage.html',
+      controller: 'DetailMessageCtrl as detailMessageCtrl'
+    })
+
     .otherwise('/login');
 });

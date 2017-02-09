@@ -1,0 +1,24 @@
+<h2>Detail du message {{ detailMessageCtrl.message.id }}</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Clé</th>
+      <th>Valeur</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="key in detailMessageCtrl.messageKeys">
+      <td>{{ key }}</td>
+      <td>
+        <span ng-switch="key">
+          <span ng-switch-when="date">{{ detailMessageCtrl.message[key] | date:'dd/MM/yyyy HH:mm:ss' }}</span>
+          <span ng-switch-default>{{ detailMessageCtrl.message[key] }}</span>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-default" href="#!/listeMessages">Retour</a>
+<a ng-if="detailMessageCtrl.isParent()" class="btn btn-primary" ng-click="detailMessageCtrl.confirmerLecture()">Confirmer la lecture</a>

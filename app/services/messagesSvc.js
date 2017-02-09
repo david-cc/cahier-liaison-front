@@ -2,13 +2,24 @@
 angular.module('app')
 .factory('MessagesSvc', function($http) {
   
-  // var messages = $http(req).then((reponse) => reponse.data);
-
   return {
     getMessages() {
       var req = {
         method: 'GET',
         url: 'http://localhost:8081/api/messages',
+        headers: {
+          'userType': btoa(window.sessionStorage.getItem('usertype')),
+          'userName': btoa(window.sessionStorage.getItem('username'))
+        }
+      };
+
+      return $http(req).then((reponse) => reponse.data);
+    },
+
+    getMessage(id) {
+      var req = {
+        method: 'GET',
+        url: 'http://localhost:8081/api/messages/' + id,
         headers: {
           'userType': btoa(window.sessionStorage.getItem('usertype')),
           'userName': btoa(window.sessionStorage.getItem('username'))
@@ -42,6 +53,28 @@ angular.module('app')
           'date': new Date(),
           'destinataires': dest
         }
+      };
+      
+      return $http(req).then((reponse) => reponse.data);
+    },
+
+    confirmerLecture(message) {
+      var username = window.sessionStorage.getItem('username');
+
+      message.destinataires.forEach(function(dest) {
+        if (dest.nom === username) {
+          dest.confirmation = true;
+        }
+      });
+
+      var req = {
+        method: 'PUT',
+        url: 'http://localhost:8081/api/messages/' + message.id,
+        headers: {
+          'userType': btoa(window.sessionStorage.getItem('usertype')),
+          'userName': btoa(username)
+        },
+        data: message
       };
       
       return $http(req).then((reponse) => reponse.data);

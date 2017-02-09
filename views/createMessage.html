@@ -3,11 +3,11 @@
 <div class="row">
   <div class="col-sm-6">
     <div id="formDiv">
-      <form name="messageForm" ng-submit="messagesCtrl.create(messageForm, message)">
+      <form name="messageForm" ng-submit="createMessageCtrl.create(messageForm, message)">
         <label for="inputMessage" class="sr-only">Message</label>
         <textarea id="inputMessage" class="form-control" ng-model="message.texte" placeholder="Message" required autofocus></textarea>
         <label for="inputDestinataires" class="sr-only">Destinataires</label>
-        <select id="inputDestinataires" class="form-control" ng-model="message.destinataire" ng-options="dest for dest in messagesCtrl.destinatairesEnum" required autofocus>
+        <select id="inputDestinataires" class="form-control" ng-model="message.destinataire" ng-options="dest for dest in createMessageCtrl.destinatairesEnum" required autofocus>
           <option value="" disabled selected>Choisir un destinataire</option>
         </select>
         <a class="btn btn-default" href="#!/accueil">Retour</a>
