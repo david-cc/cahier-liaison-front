@@ -1,0 +1,24 @@
+<h2>Liste des messages</h2>
+
+<hr>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th ng-repeat="key in messagesCtrl.messagesKeys">
+        {{ key }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="message in messagesCtrl.messages">
+      <td ng-repeat="key in messagesCtrl.messagesKeys">
+        <span ng-switch="key">
+          <span ng-switch-when="date">{{ message[key] | date:'dd/MM/yyyy' }}</span>
+          <span ng-switch-default>{{ message[key] }}</span>
+        </span>
+      </td>
+    </tr>
+  </tbody>    
+</table>
+<a class="btn btn-default" href="#!/accueil">Retour</a>

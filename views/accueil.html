@@ -1,0 +1,14 @@
+<nav ng-if="!accueilCtrl.username">
+  <ul>
+    <li><a href="#!/login">Se déconnecter</a></li>
+  </ul>
+</nav>
+
+<h1>Bienvenue {{ accueilCtrl.username }} <a class="btn btn-link" href="#!/login">(Se déconnecter)</a></h1>
+
+<nav>
+  <ul>
+    <li ng-if="accueilCtrl.isProfesseur()"><a href="#!/createMessage">Créer un message</li>  
+    <li><a href="#!/listeMessages">Lister les messages</li>
+  </ul>
+</nav>

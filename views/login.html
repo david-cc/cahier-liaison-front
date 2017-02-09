@@ -1,0 +1,8 @@
+<form class="form-signin" ng-submit="loginCtrl.login()" role="form">
+  <h2 class="form-signin-heading">Connexion</h2>
+  <label for="inputName" class="sr-only">Choisir un utilisateur</label>
+  <select id="inputName" class="form-control" ng-model="loginCtrl.user" ng-options="user.name for user in loginCtrl.users" required autofocus>
+    <option value="" disabled selected>Choisir un utilisateur</option>
+  </select>
+  <button class="btn btn-primary btn-block" type="submit">Valider</button>
+</form>

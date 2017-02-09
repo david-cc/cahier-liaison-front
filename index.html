@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>Cahier de liaison</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Cahier de liaison</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div ng-view></div>
+  </div> <!-- /container -->
+
+  <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
+  <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
+
+  <script src="app/app.js"></script>
+  <script src="app/route.js"></script>
+
+  <script src="app/controllers/loginCtrl.js"></script>
+  <script src="app/controllers/accueilCtrl.js"></script>
+  <script src="app/controllers/messagesCtrl.js"></script>
+
+  <script src="app/services/messagesSvc.js"></script>
+</body>
+</html>
